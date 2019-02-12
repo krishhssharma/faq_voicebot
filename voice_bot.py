@@ -1,5 +1,5 @@
-'''This program cluster the texts into 3 clusters. If users enter a query, it gives the answer of the query from
-    the respected cluster in which the keyword will fall.'''
+'''This program convert the questions and answers from voice to text form in a single file. Then we cluster the texts into 3 clusters. 
+   If users ask a FAQ in voice form, it gives the text answer of the query from the respected cluster.'''
 
 import nltk
 import json
@@ -133,6 +133,7 @@ def recording():
         r.adjust_for_ambient_noise(source, duration = 0.5)          # for removing noise
         
         audio = r.record(source, duration = 150) #remove the 'duration' argument to transcribe complete audio file
+						 #for instance we are here transcribing only first 150 sec i.e. 2.30 minutes
 
     txt = r.recognize_google(audio)
     text = repr(txt)
